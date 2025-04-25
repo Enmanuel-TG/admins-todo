@@ -1,16 +1,29 @@
-import { CiLogout } from "react-icons/ci";
+import { CiLogout, CiBookmarkCheck } from "react-icons/ci";
 import Image from "next/image";
 import { SidebarItem } from "./SidebarItem";
+import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from "react-icons/io5";
 
 const pages = [
   {
-    name: "category",
+    icon: <IoCalendarOutline />,
+    title: "Dashboard",
+    path: "/dashboard",
+  },
+  {
+    icon: <IoCheckboxOutline />,
+    title: "Rest TODOS",
+    path: "/dashboard/rest-todos",
+  },
+  {
+    icon: <IoListOutline />,
+    title: "Server Actions",
+    path: "/dashboard/server-todos",
   },
 ];
 
 export const Sidebar = () => {
   return (
-    <aside className="pb-3 px-6 w-full flex flex-col h-screen fixed duration-300 justify-between md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+    <aside className="pb-3 px-6 w-full flex flex-col h-screen bg-gray-300 fixed duration-300 justify-between md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
       <div>
         <div className="my-8 text-center">
           <Image
@@ -25,8 +38,8 @@ export const Sidebar = () => {
           </h5>
           <span className="hidden text-gray-400 lg:block">Admin</span>
         </div>
-        {pages.map((page, i) => (
-          <SidebarItem data={page} key={i} />
+        {pages.map((item) => (
+          <SidebarItem key={item.path} item={item} />
         ))}
       </div>
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center">

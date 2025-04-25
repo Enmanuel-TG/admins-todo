@@ -8,9 +8,9 @@ export default function DashboardLayout({
   return (
     <div>
       <Sidebar />
-      <div className="pl-75">
+      <div className="pl-72">
         <Header />
-        <main className="bg-gray-500 w-full"> {children}</main>
+        <main className="w-full pl-2"> {children}</main>
       </div>
     </div>
   );
